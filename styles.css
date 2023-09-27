@@ -9,5 +9,7 @@ body {
 
 canvas {
     border: 2px solid white;
+    width: 90vw;
+    height: 90vh;
 }
 
