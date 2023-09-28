@@ -7,6 +7,7 @@ const spaceshipHeight = 20;
 let spaceshipX = canvas.width / 2 - spaceshipWidth / 2;
 const spaceshipSpeed = 5;
 let points = 0;
+const pointsDisplay = document.getElementById('pointsDisplay');
 
 const alienWidth = 25;
 const alienHeight = 15;
@@ -36,6 +37,7 @@ let bulletX = spaceshipX + spaceshipWidth / 2 - bulletWidth / 2;
 let bulletY = canvas.height - spaceshipHeight;
 let bulletSpeed = 10;
 let bulletFired = false;
+let AlienBulletSpeed = 1;
 
 // Vihollisten piirtäminen
 function drawAliens() {
@@ -53,7 +55,7 @@ function drawAliens() {
 
 // Vihollisten liikuttaminen ja vihollisten ampuminen satunnaisesti
 function moveAliens() {
-    const alienSpeed = 1.5;
+    const alienSpeed = 1;
     let changeDirection = false;
 
     for (let r = 0; r < alienRowCount; r++) {
@@ -68,11 +70,11 @@ function moveAliens() {
                 leftMostX = Math.min(leftMostX, alien.x);
                 rightMostX = Math.max(rightMostX, alien.x + alienWidth);
 
-                if (Math.random() < 0.002 && !alien.canShoot) {
+                if (Math.random() < 0.001 && !alien.canShoot) {
                     alien.canShoot = true;
                 }
                 if (alien.canShoot) {
-                    alien.alienBulletY += bulletSpeed;
+                    alien.alienBulletY += AlienBulletSpeed;
 
                     if (alien.alienBulletY > canvas.height) {
                         alien.alienBulletY = alien.y + alienHeight;
@@ -158,6 +160,8 @@ function draw() {
 
     // Kutsutaan vihollisten liikuttamisfunktiota
     moveAliens();
+
+    pointsDisplay.textContent = 'Points: ' + points;
     
     requestAnimationFrame(draw);
 }

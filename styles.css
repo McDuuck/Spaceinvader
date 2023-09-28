@@ -13,3 +13,11 @@ canvas {
     height: 90vh;
 }
 
+#pointsDisplay {
+    position: absolute;
+    top: 0px;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+
