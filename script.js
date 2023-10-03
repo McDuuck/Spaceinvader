@@ -38,7 +38,7 @@ let bulletX = spaceshipX + spaceshipWidth / 2 - bulletWidth / 2;
 let bulletY = canvas.height - spaceshipHeight;
 let bulletSpeed = 10;
 let bulletFired = false;
-let AlienBulletSpeed = 1;
+let AlienBulletSpeed = 5;
 let gameActive = true;
 
 // Vihollisten piirtäminen
