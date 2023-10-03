@@ -1,7 +1,6 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-
 const spaceshipWidth = 40;
 const spaceshipHeight = 20;
 let spaceshipX = canvas.width / 2 - spaceshipWidth / 2;
@@ -14,7 +13,6 @@ const alienHeight = 15;
 const alienRowCount = 4;
 const alienColCount = 5;
 const aliens = [];
-
 
 for (let c = 0; c < alienColCount; c++) {
     aliens[c] = [];
@@ -54,8 +52,6 @@ function drawAliens() {
         }
     }
 }
-
-
 
 // Vihollisten liikuttaminen ja vihollisten ampuminen satunnaisesti
 function moveAliens() {
@@ -137,6 +133,7 @@ function checkCollisionWithPlayer() {
         }
     }
 }
+
 // Game over teksti
 function gameOver() {
     ctx.font = '30px Arial';
@@ -146,6 +143,7 @@ function gameOver() {
     ctx.fillText('Press "R" to restart! ', canvas.width / 2 - 80, canvas.height / 2 + 60);
     gameActive = false;
 }
+
 // Voitto teksti
 function gameWon() {
     ctx.font = '30px Arial';
@@ -241,7 +239,6 @@ document.addEventListener('keydown', (e) => {
         location.reload();
     }
 });
-
 
 draw();
 
